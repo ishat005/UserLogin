@@ -28,10 +28,8 @@ const Register = () => {
   
   useEffect(() => {
     if (user && !error) {
-      // Registration successful, redirect to login
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
+      // Registration successful, redirect to login immediately
+      navigate('/login');
     }
   }, [user, error, navigate]);
 
