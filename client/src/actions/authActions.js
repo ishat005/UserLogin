@@ -23,7 +23,7 @@ export const register = (firstName, lastName, email, username, password) => {
         dispatch({ type: "REGISTER_SUCCESS", payload: response.data });
       })
       .catch((error) => {
-        dispatch({ type: "REGISTER_ERROR", payload: error.message });
+        dispatch({ type: "REGISTER_ERROR", payload: error.response?.data?.message || error.message });
       });
   };
 };

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/authActions";
 import {
@@ -22,7 +22,18 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const error = useSelector((state) => state.error);
+  const user = useSelector((state) => state.user);
+  
+  useEffect(() => {
+    if (user && !error) {
+      // Registration successful, redirect to login
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
+    }
+  }, [user, error, navigate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,6 +77,12 @@ const Register = () => {
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {error}
+            </Alert>
+          )}
+          
+          {user && !error && (
+            <Alert severity="success" sx={{ mb: 2 }}>
+              Registration successful! Redirecting to login...
             </Alert>
           )}
 
