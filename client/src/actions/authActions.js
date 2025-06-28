@@ -1,5 +1,13 @@
 import axios from "axios";
 
+/**
+ * Logs in the user and stores the JWT token in local storage.
+ *
+ * @function
+ * @param {string} username
+ * @param {string} password
+ * @returns {Function} A thunk that dispatches actions to the Redux store.
+ */
 export const login = (username, password) => {
   return (dispatch) => {
     axios

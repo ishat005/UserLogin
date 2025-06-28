@@ -14,6 +14,14 @@ import {
 } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
+/**
+ * Register is a React component that renders a form for registering a new user.
+ * It uses the `useState` hook to keep track of the form state, and the `useDispatch` and `useSelector` hooks to interact with the Redux state.
+ * It uses the `register` action creator to dispatch an action to the Redux store when the form is submitted.
+ * The component renders an error message if the registration fails, and redirects to the login page if the registration is successful.
+ * It also renders a link to the login page if the user already has an account.
+ */
+
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

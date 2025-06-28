@@ -13,6 +13,19 @@ import {
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+/**
+ * Auth is a protected route component that renders a welcome message and a logout button.
+ *
+ * It uses the `useSelector` hook to access the `authenticated` and `user` state slices.
+ *
+ * If the user is not authenticated, it redirects the user to the login page.
+ *
+ * If the user is authenticated, it renders a welcome message and a logout button.
+ *
+ * The logout button is connected to the `logout` action creator, which is used to log the user out.
+ *
+ * @return {React.ReactElement} The rendered component.
+ */
 const Auth = () => {
   const authenticated = useSelector((state) => state.authenticated);
   const user = useSelector((state) => state.user);
